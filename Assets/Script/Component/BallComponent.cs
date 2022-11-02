@@ -6,7 +6,7 @@ namespace MyPinBall
     {
         [SerializeField] protected Rigidbody _rbBall;
         protected Vector3 _lastVelocity;
-        [SerializeField, Range(0.1f, 1f)] protected float _speedBall;
+        [SerializeField, Range(0.1f, 2f)] protected float _speedBall;
 
         void Start()
         {

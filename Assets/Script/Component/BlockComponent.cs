@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace MyPinBall
 {
-    public abstract class BlockComponent : MonoBehaviour
+    public class BlockComponent : MonoBehaviour
     {
-        [SerializeField] Material[] _colors;
+        public static BlockComponent instance;
 
-        protected float _score = 0;
+        [SerializeField] protected Material[] _colors;
         public Text _scoreText;
-        protected bool _FirstClick = false;
+        public int _score;
 
-        public List<Color> _ColorBlock = new List<Color>(2);
+        private void Start()
+        {
+            instance = this;
+        }
+
     }
 }

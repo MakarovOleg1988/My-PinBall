@@ -44,6 +44,33 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Movement Player2"",
+                    ""type"": ""Value"",
+                    ""id"": ""457216d0-0d93-47ba-863c-55371182cd8c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ChangeCamera1"",
+                    ""type"": ""Button"",
+                    ""id"": ""72e7c803-758a-4e57-af70-c435597e5179"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ChangeCamera2"",
+                    ""type"": ""Button"",
+                    ""id"": ""27bb8022-2432-4ea1-b157-b43874cbc72e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +139,83 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
                     ""action"": ""CreateBall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""6f1a6722-792c-4b1a-aa82-4d48687e095c"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement Player2"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""afc90c00-81f4-4ba3-8840-f20920f14c4e"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement Player2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c98dedb0-5830-4817-af06-8493fa7720b3"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement Player2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""a207a322-c4a7-4014-8a70-fd8af1182331"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement Player2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8b259fb0-bbb0-4fac-8b71-a0d570d78bfd"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement Player2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23da2a22-8168-4cb0-add9-7c3786cde1f0"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeCamera1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e5d6b42-0636-4832-a7ad-d5c60122add7"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ChangeCamera2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +226,9 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
         m_ActionMap = asset.FindActionMap("ActionMap", throwIfNotFound: true);
         m_ActionMap_Movement = m_ActionMap.FindAction("Movement", throwIfNotFound: true);
         m_ActionMap_CreateBall = m_ActionMap.FindAction("CreateBall", throwIfNotFound: true);
+        m_ActionMap_MovementPlayer2 = m_ActionMap.FindAction("Movement Player2", throwIfNotFound: true);
+        m_ActionMap_ChangeCamera1 = m_ActionMap.FindAction("ChangeCamera1", throwIfNotFound: true);
+        m_ActionMap_ChangeCamera2 = m_ActionMap.FindAction("ChangeCamera2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -183,12 +290,18 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
     private IActionMapActions m_ActionMapActionsCallbackInterface;
     private readonly InputAction m_ActionMap_Movement;
     private readonly InputAction m_ActionMap_CreateBall;
+    private readonly InputAction m_ActionMap_MovementPlayer2;
+    private readonly InputAction m_ActionMap_ChangeCamera1;
+    private readonly InputAction m_ActionMap_ChangeCamera2;
     public struct ActionMapActions
     {
         private @NewControls m_Wrapper;
         public ActionMapActions(@NewControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_ActionMap_Movement;
         public InputAction @CreateBall => m_Wrapper.m_ActionMap_CreateBall;
+        public InputAction @MovementPlayer2 => m_Wrapper.m_ActionMap_MovementPlayer2;
+        public InputAction @ChangeCamera1 => m_Wrapper.m_ActionMap_ChangeCamera1;
+        public InputAction @ChangeCamera2 => m_Wrapper.m_ActionMap_ChangeCamera2;
         public InputActionMap Get() { return m_Wrapper.m_ActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -204,6 +317,15 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
                 @CreateBall.started -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnCreateBall;
                 @CreateBall.performed -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnCreateBall;
                 @CreateBall.canceled -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnCreateBall;
+                @MovementPlayer2.started -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnMovementPlayer2;
+                @MovementPlayer2.performed -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnMovementPlayer2;
+                @MovementPlayer2.canceled -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnMovementPlayer2;
+                @ChangeCamera1.started -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnChangeCamera1;
+                @ChangeCamera1.performed -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnChangeCamera1;
+                @ChangeCamera1.canceled -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnChangeCamera1;
+                @ChangeCamera2.started -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnChangeCamera2;
+                @ChangeCamera2.performed -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnChangeCamera2;
+                @ChangeCamera2.canceled -= m_Wrapper.m_ActionMapActionsCallbackInterface.OnChangeCamera2;
             }
             m_Wrapper.m_ActionMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -214,6 +336,15 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
                 @CreateBall.started += instance.OnCreateBall;
                 @CreateBall.performed += instance.OnCreateBall;
                 @CreateBall.canceled += instance.OnCreateBall;
+                @MovementPlayer2.started += instance.OnMovementPlayer2;
+                @MovementPlayer2.performed += instance.OnMovementPlayer2;
+                @MovementPlayer2.canceled += instance.OnMovementPlayer2;
+                @ChangeCamera1.started += instance.OnChangeCamera1;
+                @ChangeCamera1.performed += instance.OnChangeCamera1;
+                @ChangeCamera1.canceled += instance.OnChangeCamera1;
+                @ChangeCamera2.started += instance.OnChangeCamera2;
+                @ChangeCamera2.performed += instance.OnChangeCamera2;
+                @ChangeCamera2.canceled += instance.OnChangeCamera2;
             }
         }
     }
@@ -222,5 +353,8 @@ public partial class @NewControls : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnCreateBall(InputAction.CallbackContext context);
+        void OnMovementPlayer2(InputAction.CallbackContext context);
+        void OnChangeCamera1(InputAction.CallbackContext context);
+        void OnChangeCamera2(InputAction.CallbackContext context);
     }
 }

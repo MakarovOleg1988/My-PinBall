@@ -115,6 +115,7 @@ MonoBehaviour:
   _colors:
   - {fileID: 2100000, guid: b259c397fd8be1546bb25b95e1895687, type: 2}
   - {fileID: 2100000, guid: 601aa68c31f03ae43bfcafff7e4ae693, type: 2}
+  _scoreText: {fileID: 0}
   _ColorBlock: 0001
 --- !u!114 &5505730664203562342
 MonoBehaviour:

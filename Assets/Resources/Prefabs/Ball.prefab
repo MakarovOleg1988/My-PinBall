@@ -128,4 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rbBall: {fileID: 7763579546691099847}
-  _speedBall: 1
+  _speedBall: 2
